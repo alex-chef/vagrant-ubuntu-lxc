@@ -1,9 +1,9 @@
-name             'vagrant-ubuntu-lxc2'
+name             'vagrant-ubuntu-lxc'
 maintainer       'YOUR_NAME'
 maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'
-description      'Installs/Configures vagrant-ubuntu-lxc2'
-long_description 'Installs/Configures vagrant-ubuntu-lxc2'
+description      'Installs/Configures vagrant-ubuntu-lxc'
+long_description 'Installs/Configures vagrant-ubuntu-lxc'
 version          '0.1.0'
 
 depends 'yum', '>= 3.0'

@@ -1,4 +1,4 @@
-# vagrant-ubuntu-lxc2-cookbook
+# vagrant-ubuntu-lxc-cookbook
 
 TODO: Enter the cookbook description here.
 
@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['vagrant-ubuntu-lxc2']['bacon']</tt></td>
+    <td><tt>['vagrant-ubuntu-lxc']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -25,18 +25,18 @@ TODO: List your supported platforms.
 
 ## Usage
 
-### vagrant-ubuntu-lxc2::default
+### vagrant-ubuntu-lxc::default
 
-Include `vagrant-ubuntu-lxc2` in your node's `run_list`:
+Include `vagrant-ubuntu-lxc` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[vagrant-ubuntu-lxc2::default]"
+    "recipe[vagrant-ubuntu-lxc::default]"
   ]
 }
 ```
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Vincenzo D'Amore (<v.damore@gmail.com>)

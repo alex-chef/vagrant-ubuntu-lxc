@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: vagrant-ubuntu-lxc2
+# Cookbook Name:: vagrant-ubuntu-lxc
 # Recipe:: default
 #
 # Copyright (C) 2014 YOUR_NAME
