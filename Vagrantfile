@@ -6,6 +6,11 @@ VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.require_version '>= 1.5.0'
 
+required_plugins = %w( vagrant-omnibus vagrant-berkshelf vagrant-lxc )
+required_plugins.each do |plugin|
+  system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
