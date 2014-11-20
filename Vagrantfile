@@ -6,10 +6,11 @@ VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.require_version '>= 1.5.0'
 
-required_plugins = %w( vagrant-omnibus vagrant-berkshelf vagrant-lxc )
-required_plugins.each do |plugin|
-  system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
-end
+require './myvagrantlib.rb'
+
+mylib = MyVagrantLib.new
+
+mylib.check_plugins
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
@@ -31,14 +32,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # If this value is a shorthand to a box in Vagrant Cloud then
   # config.vm.box_url doesn't need to be specified.
 
-  config.vm.provider :virtualbox do |vbox|
+  provider = mylib.get_provider()
+  
+  if provider == :virtualbox
+    puts "* Using virtualbox *"
     config.vm.box = 'chef/ubuntu-14.04'
   end
 
-  config.vm.provider :lxc do |lxc|
+  if provider == :lxc
+    puts "* Using lxc *"
     config.vm.box = 'fgrehm/trusty64-lxc'
   end
-
+ 
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as
   # any other machines on the same network, but cannot be accessed (through this
