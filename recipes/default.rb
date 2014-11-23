@@ -17,7 +17,7 @@ end
 
 execute "apt-get-install-lxc" do
   user "root"
-  command "apt-get -y install lxc wget git build-essential ruby"
+  command "apt-get -y install lxc wget git build-essential ruby nfs-kernel-server"
   returns 0
 end
 
