@@ -15,11 +15,13 @@ execute "apt-get-update" do
   returns 0
 end
 
-execute "apt-get-install-lxc" do
-  user "root"
-  command "apt-get -y install lxc wget git build-essential ruby nfs-kernel-server"
-  returns 0
-end
+package "lxc"
+package "wget"
+package "git"
+package "build-essential"
+package "ruby"
+package "nfs-kernel-server"
+package "ubuntu-zfs"
 
 execute "wget_vagrant_1.6.5_x86_64" do
   user "root"
@@ -33,7 +35,6 @@ dpkg_package "vagrant" do
   case node[:platform]
   when "debian","ubuntu"
     package_name "vagrant"
-    source "/var/chef-package-cache/glusterfs_3.2.1-1_amd64.deb"
     source "/tmp/vagrant_1.6.5_x86_64.deb"
   end
   action :install

@@ -9,14 +9,13 @@ group :development do
    gem "vagrant", github: "mitchellh/vagrant", tag: "v1.6.5"
 end
 #
-group :plugins do
-#  gem "vagrant-berkshelf", github: "berkshelf/vagrant-berkshelf"
-#  gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
-#  gem "vagrant-ubuntu-lxc", path: "."
-end
+# group :plugins do
+#   gem "vagrant-berkshelf", github: "berkshelf/vagrant-berkshelf"
+#   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
+# end
 
 gem 'test-kitchen'
 gem 'kitchen-vagrant'
-# gem 'myvagrantgem', :path => "~/wsruby/myvagrantgem"
+gem 'myvagrantgem', :path => "~/wsruby/myvagrantgem"
 
 # gemspec

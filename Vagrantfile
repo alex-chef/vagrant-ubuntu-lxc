@@ -1,23 +1,29 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+require_relative 'libraries/myvagrantgem'
+
+current_dir = File.dirname(__FILE__)
+provisioner_yml_path = "#{current_dir}/config/provisioner.yml"
+
+# mylib = MyVagrantGem.new(current_dir)
+
+# mylib.check_plugins
+
+provider = :virtualbox
+# provider = mylib.get_provider(provisioner_yml_path)
+puts "Current provider read from: #{provider}"
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = '2'
 
 Vagrant.require_version '>= 1.5.0'
 
-require './myvagrantlib.rb'
-
-mylib = MyVagrantLib.new
-
-mylib.check_plugins
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.hostname = 'vagrant-ubuntu-lxc-berkshelf'
+  config.vm.hostname = 'vagrant-ubuntu-lxc'
 
   # Set the version of chef to install using the vagrant-omnibus plugin
   # NOTE: You will need to install the vagrant-omnibus plugin:
@@ -25,22 +31,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   $ vagrant plugin install vagrant-omnibus
   #
   if Vagrant.has_plugin? 'vagrant-omnibus'
-    config.omnibus.chef_version = 'latest'
+    config.omnibus.chef_version = :latest
   end
 
   # Every Vagrant virtual environment requires a box to build off of.
   # If this value is a shorthand to a box in Vagrant Cloud then
   # config.vm.box_url doesn't need to be specified.
 
-  provider = mylib.get_provider()
-  
   if provider == :virtualbox
-    puts "* Using virtualbox *"
+     puts "* Using virtualbox *"
     config.vm.box = 'chef/ubuntu-14.04'
   end
 
   if provider == :lxc
-    puts "* Using lxc *"
+     puts "* Using lxc *"
     config.vm.box = 'fgrehm/trusty64-lxc'
   end
  

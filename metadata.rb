@@ -8,4 +8,3 @@ version          '0.1.0'
 
 depends 'yum', '>= 3.0'
 depends 'apt'
-
